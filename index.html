@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Ninja{
+        constructor(name){
+            this.name = name;
+            this.health = 100;
+            this.strength = 3;
+            this.speed = 3;
+        }
+
+        sayName(){
+            console.log(`My ninja name is ${this.name}!`)
+        }
+
+        showStats(){
+            console.log(`Name: ${this.name}, Health: ${this.health}, Strength: ${this.strength}, Speed: ${this.speed}`)
+        }
+
+        drinkSake(){
+            this.health += 10;
+            console.log(`${this.name} drank Sake and gained 10 health! Total Health: ${this.health}`)
+            return this;
+        }
+    }
+
+    class Sensei extends Ninja{
+        constructor(name){
+            super(name);
+            this.health = 200;
+            this.strength = 10;
+            this.speed = 10;
+            this.wisdom = 10;
+        }
+
+        speakWisdom(){
+            super.drinkSake();
+            console.log("Then says: 'One person is all everyone needs.'")
+        }
+    }
+    let ninja1 = new Ninja('Naruto')
+    ninja1.sayName()
+    ninja1.showStats()
+    ninja1.drinkSake()
+    let ninja2 = new Sensei('Jiraiya')
+    ninja2.speakWisdom()
+    ninja2.showStats()
+</script>
+</html>
